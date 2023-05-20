@@ -16,5 +16,36 @@ class Lutador {
         this._nome = nome;
         console.log(this.nome);
     }
+    get energia() {
+        return this._energia;
+    }
+    get vida() {
+        return this._vida;
+    }
+    status() {
+        return `Vida: ${this._vida} \n Energia: ${this._energia} \n Peso: ${this._peso}`;
+    }
+    acertouSoco() {
+        if (this._peso >= 90) {
+            this._energia -= 16;
+        }
+        else if (this._peso >= 60 && this._peso <= 89) {
+            this._energia -= 8;
+        }
+        else if (this._peso <= 60) {
+            this._energia -= 4;
+        }
+    }
+    recebeSocoDe(Alvo) {
+        if (this._peso >= 90) {
+            this._vida -= 10;
+        }
+        else if (this._peso >= 60 && this._peso <= 89) {
+            this._vida -= 5;
+        }
+        else if (this._peso <= 60) {
+            this._vida -= 2;
+        }
+    }
 }
 exports.Lutador = Lutador;
