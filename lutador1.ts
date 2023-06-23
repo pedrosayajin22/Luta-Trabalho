@@ -2,16 +2,16 @@ export class Lutador {
 
 
     constructor(
-        private _nome: string,
-        protected _especial: string = "",
-        private _vida: number = 100,
-        private _peso: number = 50 + Math.round(Math.random() * 50),
-        private _energia: number = 100,
-    
+        protected _nome: string,
+        protected _vida: number = 100,
+        protected _peso: number = 50 + Math.round(Math.random() * 50),
+        protected _energia: number = 100,
+
+
     ) {
 
     }
-    
+
 
 
     public get nome(): string {
@@ -28,7 +28,7 @@ export class Lutador {
     public get vida(): number {
         return this._vida;
     }
-    
+
     status(): string {
         return `Vida: ${this._vida} \n Energia: ${this._energia} \n Peso: ${this._peso}`
     }
@@ -48,7 +48,7 @@ export class Lutador {
 
 
 
-    recebeSocoDe(Alvo: Lutador): void {
+    recebeSocoDe(alvo: Lutador): void {
         if (this._peso >= 90) {
             this._vida -= 10
         }

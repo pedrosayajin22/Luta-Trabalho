@@ -2,9 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Lutador = void 0;
 class Lutador {
-    constructor(_nome, _especial = "", _vida = 100, _peso = 50 + Math.round(Math.random() * 50), _energia = 100) {
+    constructor(_nome, _vida = 100, _peso = 50 + Math.round(Math.random() * 50), _energia = 100) {
         this._nome = _nome;
-        this._especial = _especial;
         this._vida = _vida;
         this._peso = _peso;
         this._energia = _energia;
@@ -36,7 +35,7 @@ class Lutador {
             this._energia -= 4;
         }
     }
-    recebeSocoDe(Alvo) {
+    recebeSocoDe(alvo) {
         if (this._peso >= 90) {
             this._vida -= 10;
         }
