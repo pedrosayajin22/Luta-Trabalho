@@ -24,49 +24,46 @@ while (true) {
     console.log("--------");
     let opcao = +teclado("Digite o numero sorteado em cima:");
     console.log("+---------------------------------------");
-    let encerrar = false;
-    while (!encerrar) {
-        switch (opcao) {
-            case 1:
-                if (lutador1.energia > 0 && lutador1.vida > 0) {
-                    lutador2.recebeSocoDe(lutador1);
-                    console.log("*---------------------*");
-                    lutador1.acertouSoco();
-                    console.log(`${Lutador1Nome} acertou o soco em ${Lutador2Nome}`);
-                    console.log("*-----*");
-                    const status2 = lutador2.status();
-                    console.log(Lutador2Nome, "----- \n", status2);
-                }
-                else if (lutador1.energia < 0) {
-                    console.log(`${Lutador2Nome} Venceu o duelo`);
-                    encerrar = true;
-                }
-                else if (lutador1.vida < 0) {
-                    console.log(`${Lutador2Nome} Venceu o duelo`);
-                    encerrar = true;
-                }
-                break;
-            case 2:
-                if (lutador2.energia > 0) {
-                    lutador1.recebeSocoDe(lutador2);
-                    console.log("*---------------------*");
-                    lutador2.acertouSoco();
-                    console.log(`${Lutador2Nome} acertou o soco em ${Lutador1Nome}`);
-                    console.log("*-----*");
-                    const status1 = lutador1.status();
-                    console.log(Lutador1Nome, "----- \n", status1);
-                }
-                else if (lutador2.energia < 0) {
-                    console.log(`${Lutador1Nome} Venceu o duelo`);
-                    encerrar = true;
-                }
-                else if (lutador2.vida < 0) {
-                    console.log(`${Lutador1Nome} Venceu o duelo`);
-                    encerrar = true;
-                }
-                break;
-            default:
-                break;
-        }
+    switch (opcao) {
+        case 1:
+            if (lutador1.energia > 0 && lutador1.vida > 0) {
+                lutador2.recebeSocoDe(lutador1);
+                console.log("*---------------------*");
+                lutador1.acertouSoco();
+                console.log(`${Lutador1Nome} acertou o soco em ${Lutador2Nome}`);
+                console.log("*-----*");
+                const status2 = lutador2.status();
+                console.log(Lutador2Nome, "----- \n", status2);
+            }
+            else if (lutador1.energia < 0) {
+                console.log(`${Lutador2Nome} Venceu o duelo`);
+                process.exit();
+            }
+            else if (lutador1.vida < 0) {
+                console.log(`${Lutador2Nome} Venceu o duelo`);
+                process.exit();
+            }
+            break;
+        case 2:
+            if (lutador2.energia > 0) {
+                lutador1.recebeSocoDe(lutador2);
+                console.log("*---------------------*");
+                lutador2.acertouSoco();
+                console.log(`${Lutador2Nome} acertou o soco em ${Lutador1Nome}`);
+                console.log("*-----*");
+                const status1 = lutador1.status();
+                console.log(Lutador1Nome, "----- \n", status1);
+            }
+            else if (lutador2.energia < 0) {
+                console.log(`${Lutador1Nome} Venceu o duelo`);
+                process.exit();
+            }
+            else if (lutador2.vida < 0) {
+                console.log(`${Lutador1Nome} Venceu o duelo`);
+                process.exit();
+            }
+            break;
+        default:
+            break;
     }
 }
