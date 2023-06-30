@@ -1,12 +1,13 @@
+import { LutadorInter } from "./interface";
 import { Lutador } from "./lutador1";
 
-export class Lutador2 extends Lutador {
+export class Lutador2 extends Lutador implements LutadorInter{
     constructor(nome: string) {
         super(nome)
         this._vida = 120;
     }
 
-    recebeSocoDe(alvo: Lutador): void {
+    recebeSocoDe(alvo: LutadorInter): void {
         if (this._peso >= 90) {
             this._vida -= 5
         }

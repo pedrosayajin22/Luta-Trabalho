@@ -1,11 +1,16 @@
-export class Lutador {
+
+
+import { LutadorInter } from "./interface";
+
+
+export class Lutador implements LutadorInter {
 
 
     constructor(
-        protected _nome: string,
-        protected _vida: number = 100,
-        protected _peso: number = 50 + Math.round(Math.random() * 50),
-        protected _energia: number = 100,
+        public _nome: string,
+        public _vida: number = 100,
+        public _peso: number = 50 + Math.round(Math.random() * 50),
+        public _energia: number = 100,
 
 
     ) {

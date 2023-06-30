@@ -4,6 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const lutador1_1 = require("./lutador1");
+'..';
 const prompt_sync_1 = __importDefault(require("prompt-sync"));
 const lutador2_1 = require("./lutador2");
 const teclado = (0, prompt_sync_1.default)();
@@ -26,7 +27,7 @@ while (true) {
     console.log("+---------------------------------------");
     switch (opcao) {
         case 1:
-            if (lutador1.energia > 0 && lutador1.vida > 0) {
+            if (lutador1._energia > 0 && lutador1._vida > 0) {
                 lutador2.recebeSocoDe(lutador1);
                 console.log("*---------------------*");
                 lutador1.acertouSoco();
@@ -35,17 +36,21 @@ while (true) {
                 const status2 = lutador2.status();
                 console.log(Lutador2Nome, "----- \n", status2);
             }
-            else if (lutador1.energia < 0) {
+            else if (lutador1._energia <= 0 || lutador1._vida <= 0) {
+                const status = lutador2.status();
+                const status2 = lutador1.status();
                 console.log(`${Lutador2Nome} Venceu o duelo`);
-                process.exit();
-            }
-            else if (lutador1.vida < 0) {
-                console.log(`${Lutador2Nome} Venceu o duelo`);
+                console.log(`-`.repeat(40));
+                console.log(`Status do lutador 2 :${Lutador2Nome}`);
+                console.log(status);
+                console.log(`-`.repeat(40));
+                console.log(`Status do lutador 1 :${Lutador1Nome}`);
+                console.log(status2);
                 process.exit();
             }
             break;
         case 2:
-            if (lutador2.energia > 0) {
+            if (lutador2._energia > 0) {
                 lutador1.recebeSocoDe(lutador2);
                 console.log("*---------------------*");
                 lutador2.acertouSoco();
@@ -54,12 +59,16 @@ while (true) {
                 const status1 = lutador1.status();
                 console.log(Lutador1Nome, "----- \n", status1);
             }
-            else if (lutador2.energia < 0) {
+            else if (lutador2._energia <= 0 || lutador2._vida <= 0) {
+                const status = lutador1.status();
+                const status2 = lutador2.status();
                 console.log(`${Lutador1Nome} Venceu o duelo`);
-                process.exit();
-            }
-            else if (lutador2.vida < 0) {
-                console.log(`${Lutador1Nome} Venceu o duelo`);
+                console.log(`-`.repeat(40));
+                console.log(`Status do lutador 1 :${Lutador1Nome}`);
+                console.log(status);
+                console.log(`-`.repeat(40));
+                console.log(`Status do lutador 2 :${Lutador2Nome}`);
+                console.log(status2);
                 process.exit();
             }
             break;
